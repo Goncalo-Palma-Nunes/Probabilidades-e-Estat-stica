@@ -4,6 +4,7 @@ num_amostras <- 500
 lim_inf <- 3
 lim_sup <- 7
 valorEsperado <- (lim_inf + lim_sup) / 2
+Var = (1 / 12) * (lim_sup - lim_inf)^2
 
 histograma_n <- function(n) {
   vetor_medias <- c()
@@ -19,8 +20,9 @@ histograma_n <- function(n) {
 
 
 desenha <- function(n) {
-  Vx <- (16 / 12) / n
-  desvio <- sqrt(Vx)
+#  Vx <- (lim_sup / lim_inf) / n
+#  desvio <- sqrt(Vx)
+  desvio <- Var / n
   medias <- histograma_n(n)
 
   hist(medias, col ='lightblue', freq = FALSE,
